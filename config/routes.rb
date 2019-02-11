@@ -1,6 +1,6 @@
 Rails.application.routes.draw do
   resources :destination_activity_types
-  resources :travel_types
+  resources :trips
   resources :activities
   resources :activity_types
   resources :destinations

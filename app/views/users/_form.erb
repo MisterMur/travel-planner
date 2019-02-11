@@ -1,0 +1,11 @@
+<%= simple_form_for @user do |f| %>
+  <p><%= f.input :first_name %></p>
+  <p><%= f.input :last_name %></p>
+  <p><%= f.input :birthdate, as: :date, start_year: Date.today.year - 90,
+                              end_year: Date.today.year - 12,
+                              order: [:month, :day, :year] %></p>
+  <p><%= f.input :email %></p>
+  <p><%= f.input :username %></p>
+  <p><%= f.input :password %></p>
+  <%= f.button :submit %>
+<% end %>
