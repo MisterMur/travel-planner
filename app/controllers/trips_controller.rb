@@ -2,6 +2,7 @@ class TripsController < ApplicationController
 
   def new
     @trip = Trip.new
+    @destination_cities = Destination.view_cities(params["country_name"])
   end
 
   def create
@@ -11,6 +12,7 @@ class TripsController < ApplicationController
   end
 
   def edit
+
   end
 
   def update
@@ -22,7 +24,7 @@ class TripsController < ApplicationController
   private
 
   def find_trip
-    @trip = User.find(params[:id])
+    @trip = Trip.find(params[:id])
   end
 
 end

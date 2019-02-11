@@ -9,5 +9,11 @@ like:
 then:
 Search for top 10 restaurants, etc.
 
-or maybe also add the skyscanner one 
+or maybe also add the skyscanner one
   -->
+
+  <%= form_tag new_trip_path, method: "get" do %>
+    <h3>Enter Country: <br>
+      <input type="text" name="country_name" placeholder="enter a country">
+    <%= submit_tag("Submit") %></h3>
+  <% end %>
