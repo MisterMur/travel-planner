@@ -1,0 +1,15 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  ActivityType: one
+  name: MyString
+  age_category: MyString
+  time_spent: 2019-02-11 11:12:01
+  address: MyString
+
+two:
+  ActivityType: two
+  name: MyString
+  age_category: MyString
+  time_spent: 2019-02-11 11:12:01
+  address: MyString

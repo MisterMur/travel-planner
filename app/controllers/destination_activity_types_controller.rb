@@ -1,0 +1,2 @@
+class DestinationActivityTypesController < ApplicationController
+end
