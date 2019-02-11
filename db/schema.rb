@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_02_11_161902) do
+ActiveRecord::Schema.define(version: 2019_02_11_205242) do
 
   create_table "activities", force: :cascade do |t|
     t.integer "ActivityType_id"
@@ -41,19 +41,20 @@ ActiveRecord::Schema.define(version: 2019_02_11_161902) do
   create_table "destinations", force: :cascade do |t|
     t.string "city"
     t.string "country"
-    t.string "climate"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
 
-  create_table "travel_types", force: :cascade do |t|
+  create_table "trips", force: :cascade do |t|
     t.integer "user_id"
     t.integer "destination_id"
     t.string "mode"
+    t.date "start_date"
+    t.date "end_date"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.index ["destination_id"], name: "index_travel_types_on_destination_id"
-    t.index ["user_id"], name: "index_travel_types_on_user_id"
+    t.index ["destination_id"], name: "index_trips_on_destination_id"
+    t.index ["user_id"], name: "index_trips_on_user_id"
   end
 
   create_table "users", force: :cascade do |t|
@@ -61,6 +62,8 @@ ActiveRecord::Schema.define(version: 2019_02_11_161902) do
     t.string "last_name"
     t.date "birthdate"
     t.string "email"
+    t.string "username"
+    t.string "password"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end

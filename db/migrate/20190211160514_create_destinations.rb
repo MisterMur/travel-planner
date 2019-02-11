@@ -3,7 +3,6 @@ class CreateDestinations < ActiveRecord::Migration[5.2]
     create_table :destinations do |t|
       t.string :city
       t.string :country
-      t.string :climate
 
       t.timestamps
     end

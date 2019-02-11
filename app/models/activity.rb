@@ -1,3 +1,4 @@
 class Activity < ApplicationRecord
-  belongs_to :ActivityType
+  belongs_to :activity_type
+  belongs_to :trip
 end
