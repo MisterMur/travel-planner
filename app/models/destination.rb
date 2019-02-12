@@ -16,4 +16,6 @@ class Destination < ApplicationRecord
     end
   end
 
+ # @client = GooglePlaces::Client.new("AIzaSyBjwhfCwbOrpNN0VU5sc7QspaTmDiBPot8")
+#
 end
