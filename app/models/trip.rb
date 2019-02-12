@@ -4,9 +4,13 @@ class Trip < ApplicationRecord
   has_many :trip_activities
   has_many :actvities, through: :trip_activities
 
+  # validates :start_date, :destination_id, presence: true
+
   def to_s
     self.destination.city + ", " + self.destination.country
   end
+
+
 
 
 end #end of Trip

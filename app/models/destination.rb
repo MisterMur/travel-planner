@@ -10,12 +10,12 @@ class Destination < ApplicationRecord
 
   def self.view_cities(country_name) #this should return the cities of a country
     if country_name == nil
+      []
+    else
       self.all.select do |destination|
         destination.country == country_name.titlecase
       end
     end
   end
 
- # @client = GooglePlaces::Client.new("AIzaSyBjwhfCwbOrpNN0VU5sc7QspaTmDiBPot8")
-#
-end
+end #end of Destination class
