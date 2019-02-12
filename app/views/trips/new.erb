@@ -13,7 +13,12 @@ or maybe also add the skyscanner one
   -->
 
   <%= form_tag new_trip_path, method: "get" do %>
-    <h3>Enter Country: <br>
+    <h4>First enter country: <br>
       <input type="text" name="country_name" placeholder="enter a country">
-    <%= submit_tag("Submit") %></h3>
+    <%= submit_tag("Submit") %></h4>
+  <% end %>
+
+  <%= form_for @trip do |f| %>
+    <%= f.label :destination_id, "Select Destination" %>
+    <%= f.collection_select :destination_id, @destination_cities, :id, :city%>
   <% end %>

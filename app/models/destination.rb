@@ -9,7 +9,7 @@ class Destination < ApplicationRecord
   end
 
   def self.view_cities(country_name) #this should return the cities of a country
-    if country_name != "Clear Search" || country_name != nil
+    if country_name == nil
       self.all.select do |destination|
         destination.country == country_name.titlecase
       end
