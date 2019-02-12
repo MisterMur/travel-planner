@@ -1,17 +1,5 @@
 <h1>New Trip Form</h1>
 
-<!--
-I think here, this is where we need to connect to the API
-
-like:
-* Select destination
-
-then:
-Search for top 10 restaurants, etc.
-
-or maybe also add the skyscanner one
-  -->
-
   <%= form_tag new_trip_path, method: "get" do %>
     <h4>Search by country:
       <input type="text" name="country_name" placeholder="enter a country">
@@ -20,7 +8,7 @@ or maybe also add the skyscanner one
 
 
   <%= simple_form_for @trip do |f| %>
-    <p><%= f.input :user_id%></p> <!-- figure out how to put user here-->
+    <p><%= f.input :user_id, :as => :hidden, :value => current_user.id %></p>
     <p><%= f.input :destination_id, collection: @destination_cities, label_method: :city %></p>
     <p><%= f.input :start_date, as: :date, start_year: Date.today.year,
                                 end_year: Date.today.year + 5,

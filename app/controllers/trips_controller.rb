@@ -7,6 +7,7 @@ class TripsController < ApplicationController
   end
 
   def create
+    byebug
     @trip = Trip.new(trip_params)
     if @trip.valid?
       @trip.save
