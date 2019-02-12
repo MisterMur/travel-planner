@@ -1,5 +1,5 @@
 class TripsController < ApplicationController
-
+  before_action :find_trip, only: [:show, :edit, :update, :destroy]
 
   def new
     @trip = Trip.new

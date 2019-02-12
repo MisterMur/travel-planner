@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_02_12_175459) do
+ActiveRecord::Schema.define(version: 2019_02_12_194827) do
 
   create_table "activities", force: :cascade do |t|
     t.integer "activity_type_id"
@@ -21,22 +21,8 @@ ActiveRecord::Schema.define(version: 2019_02_12_175459) do
     t.float "rating"
     t.integer "price_level"
     t.string "photo_url"
-    t.index ["activity_type_id"], name: "index_activities_on_activity_type_id"
-  end
-
-  create_table "activity_types", force: :cascade do |t|
-    t.string "category"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-  end
-
-  create_table "destination_activity_types", force: :cascade do |t|
     t.integer "destination_id"
-    t.integer "activity_type_id"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-    t.index ["activity_type_id"], name: "index_destination_activity_types_on_activity_type_id"
-    t.index ["destination_id"], name: "index_destination_activity_types_on_destination_id"
+    t.index ["activity_type_id"], name: "index_activities_on_activity_type_id"
   end
 
   create_table "destinations", force: :cascade do |t|

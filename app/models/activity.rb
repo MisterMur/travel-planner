@@ -1,14 +1,14 @@
 class Activity < ApplicationRecord
-  belongs_to :activity_type
-  # belongs_to :trip
+  belongs_to :destination 
   has_many :trip_activities
   has_many :trips, through: :trip_activities
-  before_action :connect_google_api
+  # before_action :connect_google_api
 
 
   def location
-    #check trip association
+    #check trip association --> there's no relationship yet
     self.trip.to_s
+
   end
 
   def get_photo_url(spot)
@@ -26,6 +26,9 @@ class Activity < ApplicationRecord
   end
 
 
+  def create_by_api_connection
+
+  end
 
 
 end #end of Activity class

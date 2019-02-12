@@ -7,6 +7,7 @@ ruby '2.3.3'
 gem 'city-state'
 gem 'google_places'
 gem 'simple_form'
+gem 'bcrypt'
 
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 gem 'rails', '~> 5.2.2'

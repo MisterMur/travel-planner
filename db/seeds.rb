@@ -73,3 +73,5 @@ byebug
 # @events=[],
 # @utc_offset=nil,
 # @permanently_closed=nil>
+
+# @client.spots_by_query('historic sites near 11 broadway ny', :types => ['point_of_interest'], :exclude => ['food', 'restaurant', 'bar']).first.rating

@@ -1,4 +1,4 @@
-<h1>Trip Name</h1>
+<h1>Your Trip to <%= @trip.to_s %></h1>
 
 <!-- this is where you have all your trip details
 
@@ -9,3 +9,10 @@ Date    Activity
 <add activity> => this will link to "activities/new"
 
 -->
+
+<h3>Current Itinerary:</h3>
+  <% @trip.activities.each do |activity| %>
+    <%= activity.name %>
+  <% end %>
+
+<%= button_to "Add new itinerary item", activities_path, method: "get", name: "trip_"%>
