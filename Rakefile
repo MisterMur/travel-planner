@@ -4,3 +4,7 @@
 require_relative 'config/application'
 
 Rails.application.load_tasks
+desc "Open an irb session with api"
+task :api do
+  sh "irb  -I  extra api.rb"
+end
