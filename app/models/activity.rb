@@ -10,6 +10,8 @@ class Activity < ApplicationRecord
     self.trip.to_s
 
   end
+  def populate_data
+  end
 
   def get_photo_url(spot)
     #maxwidth in url changes photo size
