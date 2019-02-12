@@ -13,12 +13,20 @@ or maybe also add the skyscanner one
   -->
 
   <%= form_tag new_trip_path, method: "get" do %>
-    <h4>First enter country: <br>
+    <h4>Search by country:
       <input type="text" name="country_name" placeholder="enter a country">
-    <%= submit_tag("Submit") %></h4>
+    <%= submit_tag("Search") %></h4>
   <% end %>
 
-  <%= form_for @trip do |f| %>
-    <%= f.label :destination_id, "Select Destination" %>
-    <%= f.collection_select :destination_id, @destination_cities, :id, :city%>
+
+  <%= simple_form_for @trip do |f| %>
+    <p><%= f.input :user_id%></p> <!-- figure out how to put user here-->
+    <p><%= f.input :destination_id, collection: @destination_cities, label_method: :city %></p>
+    <p><%= f.input :start_date, as: :date, start_year: Date.today.year,
+                                end_year: Date.today.year + 5,
+                                order: [:month, :day, :year] %></p>
+    <p><%= f.input :end_date, as: :date, start_year: Date.today.year,
+                                end_year: Date.today.year + 5,
+                                order: [:month, :day, :year] %></p>
+    <%= f.button :submit %>
   <% end %>

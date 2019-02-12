@@ -1,11 +1,19 @@
 class TripsController < ApplicationController
 
+
   def new
     @trip = Trip.new
     @destination_cities = Destination.view_cities(params["country_name"])
   end
 
   def create
+    @trip = Trip.new(trip_params)
+    if @trip.valid?
+      @trip.save
+      redirect_to @trip
+    else
+      render :new
+    end
   end
 
   def show
@@ -25,6 +33,10 @@ class TripsController < ApplicationController
 
   def find_trip
     @trip = Trip.find(params[:id])
+  end
+
+  def trip_params
+    params.require(:trip).permit(:user_id, :destination_id, :start_date, :end_date)
   end
 
 end
