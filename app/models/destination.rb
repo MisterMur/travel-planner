@@ -18,4 +18,8 @@ class Destination < ApplicationRecord
     end
   end
 
+  def to_s
+    self.city + ", " + self.country
+  end
+
 end #end of Destination class

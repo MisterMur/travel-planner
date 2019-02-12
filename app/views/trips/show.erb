@@ -15,4 +15,10 @@ Date    Activity
     <%= activity.name %>
   <% end %>
 
-<%= button_to "Add new itinerary item", activities_path, method: "get", name: "trip_"%>
+<h3>Search for new itinerary item:</h3>
+  <%= form_tag activities_path, params: "destination_id: @trip.destination_id", method: "get" do %>
+      <input type="text" name="search">
+    <%= hidden_field_tag "destination_id", @trip.destination_id %>
+    <%= hidden_field_tag "trip_id", @trip.id %>
+    <%= submit_tag("Search")%></h4>
+  <% end %>

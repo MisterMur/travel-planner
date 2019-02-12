@@ -1,1 +1,13 @@
-<h1></h1>
+<h1>activity</h1>
+
+<!-- come back to this and make it look pretty -->
+<ul>
+<% @activities.each do |activity| %>
+  <% if activity.photo_url != "Photo Unavailable" %>
+  <li><%= link_to activity.name, activity %><br>
+  <img height="100" src="<%= activity.photo_url %>"></li>
+  <% else %>
+  <li><%= link_to activity.name, activity %></li>
+  <% end %>
+<% end %>
+</ul>

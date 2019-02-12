@@ -1,12 +1,12 @@
-<h1>View Activity</h1>
+<h1><%= @activity.name %></h1>
 
-<!--
-name:
-location:
-opening hours:
-admission $$:
-other data from Google API
+<img src="<%= @activity.photo_url %>" alt="Photo Unavailable">
 
+<h3>Name: <%= @activity.name %> </h3>
+<h3>Address: <%= @activity.address %> </h3>
+<h3>Rating: <%= @activity.rating %> </h3>
+<h3>Price: <%= @activity.price_level %> </h3>
 
-<link_to delete> => if user wants to remove this activity
--->
+<%= button_to "Add to itinerary",  %>
+
+<!-- add pin to map -->

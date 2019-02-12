@@ -10,10 +10,9 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_02_12_194827) do
+ActiveRecord::Schema.define(version: 2019_02_12_211235) do
 
   create_table "activities", force: :cascade do |t|
-    t.integer "activity_type_id"
     t.string "name"
     t.string "address"
     t.datetime "created_at", null: false
@@ -22,7 +21,7 @@ ActiveRecord::Schema.define(version: 2019_02_12_194827) do
     t.integer "price_level"
     t.string "photo_url"
     t.integer "destination_id"
-    t.index ["activity_type_id"], name: "index_activities_on_activity_type_id"
+    t.string "search"
   end
 
   create_table "destinations", force: :cascade do |t|
