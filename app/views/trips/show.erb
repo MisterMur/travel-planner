@@ -3,13 +3,13 @@
 
 <h3>Current Itinerary:</h3>
   <% @trip.activities.each do |activity| %>
-    <p><%= link_to activity.name, activity_path(id: activity.id, trip_id: @trip.id) %></p>
+    <p><%=  %><%= link_to activity.name, activity_path(id: activity.id, trip_id: @trip.id) %></p>
   <% end %>
 
 <h3>Add Itinerary:</h3>
   <%= form_tag activities_path, method: "get" do %>
-      <label>Date:</label><%= select_tag  %>
-      <label>Search for activity</label><input type="text" name="search">
+      <p><label>Date:</label><%= collection_select :trip_activity, :date, @trip.trip_dates, :to_s, :to_s%></p>
+      <p><label>Search for activity</label><input type="text" name="search"></p>
     <%= hidden_field_tag :trip_id, @trip.id %>
     <%= submit_tag("Search")%>
   <% end %>

@@ -5,6 +5,8 @@ class ActivitiesController < ApplicationController
     #have it render on the page so it can be carried across
     # byebug
     @search = params[:search]
+    @date = params[:trip_activity][:date]
+    byebug
     find_trip
 
     #fetch from API for the activity spots
@@ -24,9 +26,13 @@ class ActivitiesController < ApplicationController
   end
 
   def add_to_trip
-    TripActivity.create(trip_id: params[:trip_id], activity_id: params[:activity_id])
+    TripActivity.create(trip_id: params[:trip_id], activity_id: params[:activity_id], date: params[:date])
     find_trip
     redirect_to trip_path(@trip)
+  end
+
+  def sort_by_rating
+    @activities.sort_by { |act| act.rating }
   end
 
   def destroy

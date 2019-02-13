@@ -1,13 +1,17 @@
 <h1>Activities in <%= @trip.to_s %></h1>
 
 <!-- come back to this and make it look pretty -->
+
+<iframe width="600" height="450" frameborder="0" style="border:0"
+src="https://www.google.com/maps/embed/v1/search?q=pizza+rome,+italy&key=..." allowfullscreen></iframe>
 <ul>
+
 <% @activities.each do |activity| %>
-  <% if activity.photo_url != "Photo Unavailable" %> 
+  <% if activity.photo_url != "Photo Unavailable" %>
   <li><%= link_to activity.name, activity_path(id: activity.id, trip_id: @trip.id)%><br>
   <img height="100" src="<%= activity.photo_url %>"></li>
   <% else %>
-  <li><%= link_to activity.name, activity, :trip_id => @trip.id %></li>
+  <li><%= link_to activity.name+' Rating: '+activity.rating.to_s, activity, :trip_id => @trip.id %></li>
   <% end %>
 <% end %>
 </ul>

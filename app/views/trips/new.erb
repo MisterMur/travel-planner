@@ -1,11 +1,14 @@
-<% if @destination_cities == [] || @destination_cities == nil %>
+<% if @country == [] || @country == nil %>
+
   <h2>Create New Trip</h2>
   <%= form_tag new_trip_path, method: "get" do %>
     <h4>Select Country:
       <%= collection_select :destination, :country_id, Country.all, :id, :name %>
     <%= submit_tag("Search") %></h4>
   <% end %>
+
 <% else %>
+
   <h2>New Trip to <%= @country.name %></h2>
   <%= simple_form_for @trip do |f| %>
     <p><%= f.label :trip_name %>
@@ -15,7 +18,7 @@
         <option value="<%= trip %>"></option>
       <% end %>
     </datalist></p>
-    <p><%= f.input :destination_id, collection: @destination_cities, label_method: :city %></p>
+    <p><%= f.input :destination_id, collection: @destination_cities, label_method: :state_city%></p>
     <p><%= f.input :start_date, as: :date, start_year: Date.today.year,
                                 end_year: Date.today.year + 5,
                                 order: [:month, :day, :year] %></p>
@@ -24,4 +27,5 @@
                                 order: [:month, :day, :year] %></p>
     <%= f.button :submit %>
   <% end %>
+
 <% end %>

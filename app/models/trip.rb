@@ -8,7 +8,7 @@ class Trip < ApplicationRecord
 
   def to_s
     # byebug
-    self.destination.city + ", " + self.destination.country.name
+    self.destination.city + ", " + self.destination.country_name
   end
 
   def self.trip_names(user_id)
@@ -20,8 +20,9 @@ class Trip < ApplicationRecord
   end
 
   def trip_dates
-
-  end 
+    date_range = self.start_date..self.end_date
+    date_range.map{|d| d.strftime("%m/%d/%Y")}.to_a
+  end
 
 
 end #end of Trip
