@@ -7,8 +7,9 @@ class TripsController < ApplicationController
   end
 
   def create
-    byebug
     @trip = Trip.new(trip_params)
+    @trip.user_id = current_user.id
+
     if @trip.valid?
       @trip.save
       redirect_to @trip

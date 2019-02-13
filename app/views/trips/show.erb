@@ -1,24 +1,13 @@
 <h1>Your Trip to <%= @trip.to_s %></h1>
 
-<!-- this is where you have all your trip details
-
-Date    Activity
-7/1/19  Colosseum (link to Activity)
-
-
-<add activity> => this will link to "activities/new"
-
--->
-
 <h3>Current Itinerary:</h3>
   <% @trip.activities.each do |activity| %>
-    <%= activity.name %>
+    <p><%= link_to activity.name, activity_path(id: activity.id, trip_id: @trip.id) %></p>
   <% end %>
 
 <h3>Search for new itinerary item:</h3>
-  <%= form_tag activities_path, params: "destination_id: @trip.destination_id", method: "get" do %>
+  <%= form_tag activities_path, method: "get" do %>
       <input type="text" name="search">
-    <%= hidden_field_tag "destination_id", @trip.destination_id %>
-    <%= hidden_field_tag "trip_id", @trip.id %>
-    <%= submit_tag("Search")%></h4>
+    <%= hidden_field_tag :trip_id, @trip.id %>
+    <%= submit_tag("Search")%>
   <% end %>

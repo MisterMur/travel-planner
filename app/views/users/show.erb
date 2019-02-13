@@ -1,20 +1,13 @@
+<p><%= link_to "Create New Trip", new_trip_path%> |
+<%= link_to "Explore Destinations", destinations_path%> |
+<%= link_to "Edit Profile", edit_user_path%> |
+<%= link_to "Delete Profile", user_path, method: "delete"%></p>
+
+<br>
+
 <h1><%= @user.to_s %>'s Profile Page</h1>
-
-<!--
-* your name
-
-* link to "create new trip" (will link to trip/new)
-* link to "explore all destinations" => destinations/index
-
-* edit profile (link to edit form "users/edit")
-  -->
 
 <h3>Your Upcoming Trips</h3>
   <% @user.trips.each do |trip| %>
     <p><%= link_to trip.to_s, trip %></p>
   <% end %><br>
-
-<p><%= link_to "Create New Trip", new_trip_path%> |
-<%= link_to "Explore Destinations", destinations_path%> |
-<%= link_to "Edit Profile", edit_user_path%> |
-<%= link_to "Delete Profile", user_path, method: "delete"%></p>
