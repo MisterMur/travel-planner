@@ -29,5 +29,9 @@ class Destination < ApplicationRecord
     self.state_name + " - " + self.city
   end
 
+  def to_api
+    self.city + "%20" + self.country_name
+  end
+
 
 end #end of Destination class

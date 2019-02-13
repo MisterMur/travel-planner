@@ -9,7 +9,7 @@
   <h2>Explore Destinations in <%= @country.name %></h2>
   <%= form_tag destination_path(:id), method: "get" do %>
     <h4>Select City:
-      <%= collection_select :destination, :id, @destinations, :id, :city %>
+      <%= collection_select :destination, :id, @destinations, :id, :state_city %>
     <%= submit_tag("Search") %></h4>
     <% end %>
 <% end %>

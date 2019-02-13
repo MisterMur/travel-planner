@@ -1,16 +1,19 @@
 <h2>Things to do in <%= @destination.city %></h2>
 
 <h3>Explore Restaurants</h3>
+<iframe width="600" height="450" frameborder="0" style="border:0"
+src="https://www.google.com/maps/embed/v1/search?q=restaurants+and+bars%20<%=@destination.to_api %>&key=AIzaSyBcF7WmTnqaJVXqW1u4Z2rhHEjOeiaNRtg" allowfullscreen></iframe>
+<ul>
 <% @restaurants.each do |restaurant| %>
   <p><%= link_to restaurant.name, activity_path(restaurant.id) %></p>
 <% end %>
 
 <h3>Explore Bars</h3>
 <% @bars.each do |bar| %>
-  <p><%= bar.name %></p>
+  <p><%= link_to bar.name, activity_path(bar.id)%></p>
 <% end %>
 
 <h3>Explore Museums</h3>
 <% @museums.each do |museum| %>
-  <p><%= museum.name%></p>
+  <p><%= link_to museum.name, activity_path(museum.id)%></p>
 <% end %>

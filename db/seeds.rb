@@ -16,6 +16,16 @@
 #   end
 # end
 
+########### this is to seed the images table
+
+Image.create(url: "http://www.experttravelguide.net/wp-content/uploads/2017/10/landing_bg.jpg")
+Image.create(url: "http://www.ecmpublishing.com/contentfiles/uploads/images/image001.jpg")
+Image.create(url: "http://travel-2-go.com/images/beachPier.jpg")
+Image.create(url: "https://res.cloudinary.com/jpress/image/fetch/c_fill,f_auto,h_1133,q_auto:eco,w_1700/https://inews.co.uk/wp-content/uploads/2018/11/shutterstock_186150560.jpg")
+Image.create(url: "http://www.applevacations.com/appleweb/images/sheratonKona212219.jpg")
+Image.create(url: "http://www.gosunrisetravel.com/img/europe-travel-packages.jpg")
+
+
 # Destination.view_countries.each do |country|
 #   Country.create(name: country)
 # end

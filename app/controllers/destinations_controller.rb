@@ -3,12 +3,17 @@ class DestinationsController < ApplicationController
   def index
     if params[:destination] != nil
       @country = Country.find_by(id: params[:destination][:country_id])
-      @destinations = Destination.view_cities(params[:destination][:country_id]).sort_by{|d| d.city}
+      @destinations = Destination.view_cities(params[:destination][:country_id]).sort_by{|d| d.state_city}
     end
   end
 
   def show
-    @destination = Destination.find(params[:destination][:id])
+    # byebug
+    if !!params[:destination]
+      @destination = Destination.find(params[:destination][:id])
+    else
+      @destination = Destination.find(params[:id])
+    end
 
     restaurants = Activity.get_spots("restaurants", @destination.id)
     Activity.create_by_api_connection(restaurants, @destination.id, "restaurants")

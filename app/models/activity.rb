@@ -44,5 +44,9 @@ class Activity < ApplicationRecord
     end
   end
 
+  def format_address_for_search
+    self.address.split(" ").join("%20")
+  end
+
 
 end #end of Activity class
