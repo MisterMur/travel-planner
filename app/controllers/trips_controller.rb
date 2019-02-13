@@ -30,10 +30,10 @@ class TripsController < ApplicationController
 
   def show
     # byebug
+    @trip_activities = @trip.trip_activities.sort_by{|t| t.date}
   end
 
   def edit
-
   end
 
   def update

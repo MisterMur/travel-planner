@@ -8,10 +8,10 @@ src="https://www.google.com/maps/embed/v1/search?q=pizza+rome,+italy&key=..." al
 
 <% @activities.each do |activity| %>
   <% if activity.photo_url != "Photo Unavailable" %>
-  <li><%= link_to activity.name, activity_path(id: activity.id, trip_id: @trip.id)%><br>
+  <li><%= link_to activity.name, activity_path(id: activity.id, trip_id: @trip.id, date: @date)%> | Rating: <%= activity.rating %><br>
   <img height="100" src="<%= activity.photo_url %>"></li>
   <% else %>
-  <li><%= link_to activity.name+' Rating: '+activity.rating.to_s, activity, :trip_id => @trip.id %></li>
+  <li><%= link_to activity.name, activity_path(id: activity.id, trip_id: @trip.id, date: @date)%> Rating: <%= activity.rating %></li>
   <% end %>
 <% end %>
 </ul>

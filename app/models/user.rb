@@ -7,7 +7,7 @@ class User < ApplicationRecord
 
   validates :first_name, :last_name, :birthdate, :email, :username, :password, presence: true
   validates :email, :username, uniqueness: true
-  validates :password, length: { in: 4..12 }
+  # validates :password, length: { in: 4..12 }
 
   def view_destinations
     self.destinations.map{|destination| destination.name}
