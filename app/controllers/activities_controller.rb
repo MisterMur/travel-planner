@@ -1,9 +1,18 @@
 class ActivitiesController < ApplicationController
+  def get_search_image(q)
+    # byebug
+    imgs = Google::Search::Image.new(:query =>q).each do |image|
+      file.write %(<img src="#{image.uri}">)
+       end
+       imgs.first
+       byebug
+  end
 
   def index
     #get param that are passed through
     #have it render on the page so it can be carried across
     # byebug
+    # @image = get_search_image
     @search = params[:search]
     @date = params[:trip_activity][:date]
     # byebug
