@@ -3,7 +3,7 @@
 <!-- come back to this and make it look pretty -->
 <ul>
 <% @activities.each do |activity| %>
-  <% if activity.photo_url != "Photo Unavailable" %>
+  <% if activity.photo_url != "Photo Unavailable" %> 
   <li><%= link_to activity.name, activity_path(id: activity.id, trip_id: @trip.id)%><br>
   <img height="100" src="<%= activity.photo_url %>"></li>
   <% else %>

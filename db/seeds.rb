@@ -15,10 +15,18 @@
 #   end
 # end
 
+# Destination.view_countries.each do |country|
+#   Country.create(name: country)
+# end
+
+# Destination.all.each do |destination|
+#   # byebug
+#   destination.update(country_id: Country.find_by(name: destination.country).id)
+# end
 
 
 # @client = GooglePlaces::Client.new("AIzaSyBjwhfCwbOrpNN0VU5sc7QspaTmDiBPot8")
-byebug
+# byebug
 
 # User.create(first_name: "linya", last_name: "hu", birthdate: Date.parse('1994-06-25'), email: "linya.hu
 # @flatironschool.com", username: "lh62594", password: "1234")

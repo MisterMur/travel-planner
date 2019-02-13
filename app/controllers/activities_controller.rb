@@ -18,6 +18,7 @@ class ActivitiesController < ApplicationController
   end
 
   def show
+    # byebug
     find_activity
     find_trip
   end

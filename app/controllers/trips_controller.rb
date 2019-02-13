@@ -3,10 +3,15 @@ class TripsController < ApplicationController
 
   def new
     @trip = Trip.new
-    @destination_cities = Destination.view_cities(params["country_name"])
+
+    if params[:destination]!= nil
+      @country = Country.find_by(id: params[:destination][:country_id].to_i)
+      @destination_cities = Destination.view_cities(params[:destination][:country_id])
+    end
   end
 
   def create
+    # byebug
     @trip = Trip.new(trip_params)
     @trip.user_id = current_user.id
 

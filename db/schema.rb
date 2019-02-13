@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_02_12_211235) do
+ActiveRecord::Schema.define(version: 2019_02_13_143013) do
 
   create_table "activities", force: :cascade do |t|
     t.string "name"
@@ -24,11 +24,16 @@ ActiveRecord::Schema.define(version: 2019_02_12_211235) do
     t.string "search"
   end
 
+  create_table "countries", force: :cascade do |t|
+    t.string "name"
+  end
+
   create_table "destinations", force: :cascade do |t|
     t.string "city"
     t.string "country"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.integer "country_id"
   end
 
   create_table "trip_activities", force: :cascade do |t|
@@ -57,7 +62,7 @@ ActiveRecord::Schema.define(version: 2019_02_12_211235) do
     t.date "birthdate"
     t.string "email"
     t.string "username"
-    t.string "password"
+    t.string "password_digest"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end

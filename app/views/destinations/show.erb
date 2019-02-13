@@ -1,15 +1,16 @@
-<h1>City Name</h1>
+<h2>Things to do in <%= @destination.city %></h2>
 
-<!--
-is it possible to connect to the API here as well?
+<h3>Explore Restaurants</h3>
+<% @restaurants.each do |restaurant| %>
+  <p><%= link_to restaurant.name, activity_path(restaurant.id) %></p>
+<% end %>
 
-For example: (or whatever)
-Top 5 restaurants
+<h3>Explore Bars</h3>
+<% @bars.each do |bar| %>
+  <p><%= bar.name %></p>
+<% end %>
 
-Top 5 Historic Sites
-
-Top 10 Activities in Rome:
-1. asd;flkj
-2. asd;lfkj
-
--->
+<h3>Explore Museums</h3>
+<% @museums.each do |museum| %>
+  <p><%= museum.name%></p>
+<% end %>

@@ -7,7 +7,8 @@ class Trip < ApplicationRecord
   # validates :start_date, :destination_id, presence: true
 
   def to_s
-    self.destination.city + ", " + self.destination.country
+    # byebug
+    self.destination.city + ", " + self.destination.country.name
   end
 
 
