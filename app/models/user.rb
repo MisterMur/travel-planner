@@ -17,4 +17,16 @@ class User < ApplicationRecord
     self.first_name + " " + self.last_name
   end
 
+  def view_trip_names
+    self.trips.map do |trip|
+      trip.trip_name
+    end.uniq
+  end
+
+  def select_trips(trip_name)
+    self.trips.select do |trip|
+      trip.trip_name == trip_name
+    end
+  end
+
 end

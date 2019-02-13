@@ -14,6 +14,9 @@ class TripsController < ApplicationController
     # byebug
     @trip = Trip.new(trip_params)
     @trip.user_id = current_user.id
+    if @trip.trip_name == nil || @trip.trip_name == ""
+      @trip.trip_name = "-----------"
+    end
 
     if @trip.valid?
       @trip.save
@@ -34,6 +37,12 @@ class TripsController < ApplicationController
   end
 
   def destroy
+    # byebug
+    TripActivity.select{|t| t.trip_id == @trip.id}.each do |trip_activity|
+      trip_activity.destroy
+    end
+    @trip.destroy
+    redirect_to user_path(current_user.id)
   end
 
   private
@@ -43,7 +52,7 @@ class TripsController < ApplicationController
   end
 
   def trip_params
-    params.require(:trip).permit(:user_id, :destination_id, :start_date, :end_date)
+    params.require(:trip).permit(:user_id, :destination_id, :start_date, :end_date, :trip_name)
   end
 
 end

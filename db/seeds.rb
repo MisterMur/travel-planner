@@ -15,6 +15,11 @@
 #   end
 # end
 
+CS.countries.each do |country_code, country_name|
+  Country.create(name: country_name)
+  byebug
+end
+
 # Destination.view_countries.each do |country|
 #   Country.create(name: country)
 # end
