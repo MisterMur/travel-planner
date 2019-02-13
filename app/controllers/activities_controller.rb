@@ -6,7 +6,7 @@ class ActivitiesController < ApplicationController
     # byebug
     @search = params[:search]
     @date = params[:trip_activity][:date]
-    byebug
+    # byebug
     find_trip
 
     #fetch from API for the activity spots

@@ -3,7 +3,7 @@
 <!-- come back to this and make it look pretty -->
 
 <iframe width="600" height="450" frameborder="0" style="border:0"
-src="https://www.google.com/maps/embed/v1/search?q=pizza+rome,+italy&key=..." allowfullscreen></iframe>
+src="https://www.google.com/maps/embed/v1/search?q=<%= @search%>%20<%=@trip.to_api %>&key=AIzaSyBcF7WmTnqaJVXqW1u4Z2rhHEjOeiaNRtg" allowfullscreen></iframe>
 <ul>
 
 <% @activities.each do |activity| %>

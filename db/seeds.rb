@@ -15,15 +15,15 @@
 #   end
 # end
 
-# CS.countries.each do |country_code, country_name|
-#   country = Country.find_by(name: country_name)
-#   CS.states(country_code).each do |state_code, state_name|
-#     state = State.create(name: state_name, country_id: country.id)
-#     CS.cities(state_code, country_code).each do |city|
-#       Destination.create(city: city, state_id: state.id)
-#     end
-#   end
-# end
+CS.countries.each do |country_code, country_name|
+  country = Country.create(name: country_name)
+  CS.states(country_code).each do |state_code, state_name|
+    state = State.create(name: state_name, country_id: country.id)
+    CS.cities(state_code, country_code).each do |city|
+      Destination.create(city: city, state_id: state.id)
+    end
+  end
+end
 
 # Destination.view_countries.each do |country|
 #   Country.create(name: country)

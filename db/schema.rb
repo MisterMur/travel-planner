@@ -26,6 +26,7 @@ ActiveRecord::Schema.define(version: 2019_02_13_172544) do
 
   create_table "countries", force: :cascade do |t|
     t.string "name"
+    t.string "states"
   end
 
   create_table "destinations", force: :cascade do |t|

@@ -11,6 +11,10 @@ class Trip < ApplicationRecord
     self.destination.city + ", " + self.destination.country_name
   end
 
+  def to_api
+    "%20"+self.destination.city + "%20" + self.destination.country_name
+  end
+
   def self.trip_names(user_id)
     self.all.select do |trip|
       trip.user_id == user_id
