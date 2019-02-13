@@ -23,9 +23,12 @@ class ActivitiesController < ApplicationController
     # byebug
     find_activity
     find_trip
+    @date = params[:date]
+    @trip_activity = TripActivity.select_trip_activity(trip_id: params[:trip_id], activity_id: params[:id])
   end
 
   def add_to_trip
+    # byebug
     TripActivity.create(trip_id: params[:trip_id], activity_id: params[:activity_id], date: params[:date])
     find_trip
     redirect_to trip_path(@trip)

@@ -1,17 +1,21 @@
 <h2>Your Trip to <%= @trip.to_s %></h2>
-<h4><%= @trip.start_date.strftime("%m/%d/%Y") %> - <%= @trip.end_date.strftime("%m/%d/%Y") %></h4>
+<h4>Dates: <%= @trip.start_date.strftime("%m/%d/%Y") %> - <%= @trip.end_date.strftime("%m/%d/%Y") %></h4>
 
 <h3>Current Itinerary:</h3>
-  <% @trip.activities.each do |activity| %>
-    <p><%=  %><%= link_to activity.name, activity_path(id: activity.id, trip_id: @trip.id) %></p>
+  <% @trip_activities.each do |ta| %>
+    <p><%= ta.date %> -
+    <%= link_to ta.activity.name, activity_path(id: ta.activity_id, trip_id: @trip.id) %> -
+    Rating: <%= ta.activity.rating %>
+    </p>
   <% end %>
+
 
 <h3>Add Itinerary:</h3>
   <%= form_tag activities_path, method: "get" do %>
-      <p><label>Date:</label><%= collection_select :trip_activity, :date, @trip.trip_dates, :to_s, :to_s%></p>
-      <p><label>Search for activity</label><input type="text" name="search"></p>
+      <p><label>Date&nbsp</label><%= collection_select :trip_activity, :date, @trip.trip_dates, :to_s, :to_s%> &nbsp&nbsp
+      <label>Search for activity&nbsp</label><input type="text" name="search">
     <%= hidden_field_tag :trip_id, @trip.id %>
-    <%= submit_tag("Search")%>
+    <%= submit_tag("Search")%></p>
   <% end %>
 
 <br>

@@ -1,29 +1,20 @@
 # This file should contain all the record creation needed to seed the database with its default values.
 # The data can then be loaded with the rails db:seed command (or created alongside the database with db:setup).
 #
-# Examples:
-#
-#   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
-#   Character.create(name: 'Luke', movie: movies.first)
-# CLIMATE = ['TROPICAL','DRY','TEMPERATE','CONTINENTAL','POLAR']
 
-# CS.get.each do |country_code,country_name|
-#   CS.states(country_code).each do |city_code,city|
-#     CS.cities(city_code).each do |city_name|
-#       Destination.create(country:country_name,city:city_name)
+##########################################################
+#          USE THIS TO RE-SEED A NEW DATABASE            #
+##########################################################
+
+# CS.countries.each do |country_code, country_name|
+#   country = Country.create(name: country_name)
+#   CS.states(country_code).each do |state_code, state_name|
+#     state = State.create(name: state_name, country_id: country.id)
+#     CS.cities(state_code, country_code).each do |city|
+#       Destination.create(city: city, state_id: state.id)
 #     end
 #   end
 # end
-
-CS.countries.each do |country_code, country_name|
-  country = Country.create(name: country_name)
-  CS.states(country_code).each do |state_code, state_name|
-    state = State.create(name: state_name, country_id: country.id)
-    CS.cities(state_code, country_code).each do |city|
-      Destination.create(city: city, state_id: state.id)
-    end
-  end
-end
 
 # Destination.view_countries.each do |country|
 #   Country.create(name: country)
