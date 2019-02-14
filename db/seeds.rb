@@ -1,29 +1,30 @@
 # This file should contain all the record creation needed to seed the database with its default values.
 # The data can then be loaded with the rails db:seed command (or created alongside the database with db:setup).
 #
-# Examples:
-#
-#   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
-#   Character.create(name: 'Luke', movie: movies.first)
-# CLIMATE = ['TROPICAL','DRY','TEMPERATE','CONTINENTAL','POLAR']
 
-# CS.get.each do |country_code,country_name|
-#   CS.states(country_code).each do |city_code,city|
-#     CS.cities(city_code).each do |city_name|
-#       Destination.create(country:country_name,city:city_name)
+##########################################################
+#          USE THIS TO RE-SEED A NEW DATABASE            #
+##########################################################
+
+# CS.countries.each do |country_code, country_name|
+#   country = Country.create(name: country_name)
+#   CS.states(country_code).each do |state_code, state_name|
+#     state = State.create(name: state_name, country_id: country.id)
+#     CS.cities(state_code, country_code).each do |city|
+#       Destination.create(city: city, state_id: state.id)
 #     end
 #   end
 # end
 
-CS.countries.each do |country_code, country_name|
-  country = Country.create(name: country_name)
-  CS.states(country_code).each do |state_code, state_name|
-    state = State.create(name: state_name, country_id: country.id)
-    CS.cities(state_code, country_code).each do |city|
-      Destination.create(city: city, state_id: state.id)
-    end
-  end
-end
+########### this is to seed the images table
+
+Image.create(url: "http://www.experttravelguide.net/wp-content/uploads/2017/10/landing_bg.jpg")
+Image.create(url: "http://www.ecmpublishing.com/contentfiles/uploads/images/image001.jpg")
+Image.create(url: "http://travel-2-go.com/images/beachPier.jpg")
+Image.create(url: "https://res.cloudinary.com/jpress/image/fetch/c_fill,f_auto,h_1133,q_auto:eco,w_1700/https://inews.co.uk/wp-content/uploads/2018/11/shutterstock_186150560.jpg")
+Image.create(url: "http://www.applevacations.com/appleweb/images/sheratonKona212219.jpg")
+Image.create(url: "http://www.gosunrisetravel.com/img/europe-travel-packages.jpg")
+
 
 # Destination.view_countries.each do |country|
 #   Country.create(name: country)

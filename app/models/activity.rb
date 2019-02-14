@@ -10,9 +10,6 @@ class Activity < ApplicationRecord
     self.destination.to_s
   end
 
-  def populate_data
-  end
-
   def self.get_photo_url(spot)
     # byebug
     #maxwidth in url changes photo size
@@ -45,6 +42,10 @@ class Activity < ApplicationRecord
     Activity.all.select do |activity|
       activity.search == search && activity.destination_id == id.to_i
     end
+  end
+
+  def format_address_for_search
+    self.address.split(" ").join("%20")
   end
 
 

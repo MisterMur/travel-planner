@@ -1,16 +1,13 @@
-<h2>Things to do in <%= @destination.city %></h2>
+<h2><%= @search %> in <%= @destination.city %></h2>
 
-<h3>Explore Restaurants</h3>
-<% @restaurants.each do |restaurant| %>
-  <p><%= link_to restaurant.name, activity_path(restaurant.id) %></p>
+<!-- might have to remove this -->
+<iframe width="600" height="450" frameborder="0" style="border:0"
+src="https://www.google.com/maps/embed/v1/search?q=<%= @search %>%20<%=@destination.to_api %>&key=AIzaSyBcF7WmTnqaJVXqW1u4Z2rhHEjOeiaNRtg" allowfullscreen></iframe>
+<ul>
+<!-- might have to remove this -->
+
+<% @activities.each do |activity| %>
+  <p><%= link_to activity.name, activity_path(id: activity.id, search: @search) %></p>
 <% end %>
 
-<h3>Explore Bars</h3>
-<% @bars.each do |bar| %>
-  <p><%= bar.name %></p>
-<% end %>
-
-<h3>Explore Museums</h3>
-<% @museums.each do |museum| %>
-  <p><%= museum.name%></p>
-<% end %>
+<%= button_to "Back to search", destinations_path, params: {country_id: @destination.country_id}, method: :get %>
