@@ -13,3 +13,32 @@
  *= require_tree .
  *= require_self
  */
+
+
+ body {
+   font-family: 'Arial';
+ }
+
+ #main {
+   margin-top: 140px;
+ }
+
+ #description {
+   margin-top: 50px;
+ }
+
+ #homepage {
+   background: url('https://media.giphy.com/media/sfjfPOe8DKptm/giphy.gif') no-repeat;
+   background-size: cover;
+   height: 550px;
+ }
+
+ #inputsm {
+   height: 20px;
+   width: 100px;
+   font-size: 12px;
+ }
+
+ .tinypad {
+   margin: 2px;
+ }

@@ -1,13 +1,30 @@
-<h2><%= @search %> in <%= @destination.city %></h2>
+<div class="container">
+  <div class="d-flex justify-content-center h-100 headpad">
+    <h2><%= @search %> in <%= @destination.city %></h2>
+  </div>
 
-<!-- might have to remove this -->
-<iframe width="600" height="450" frameborder="0" style="border:0"
-src="https://www.google.com/maps/embed/v1/search?q=<%= @search %>%20<%=@destination.to_api %>&key=AIzaSyBcF7WmTnqaJVXqW1u4Z2rhHEjOeiaNRtg" allowfullscreen></iframe>
-<ul>
-<!-- might have to remove this -->
+  <div class="row">
 
-<% @activities.each do |activity| %>
-  <p><%= link_to activity.name, activity_path(id: activity.id, search: @search) %></p>
-<% end %>
+    <div class="col-sm-1">
 
-<%= button_to "Back to search", destinations_path, params: {country_id: @destination.country_id}, method: :get %>
+    </div>
+
+    <div class="col-sm-4">
+    <% @activities.each do |activity| %>
+      <p><%= link_to activity.name, activity_path(id: activity.id, search: @search) %></p>
+    <% end %>
+
+
+    </div>
+
+    <div class="col-sm-4 float_right">
+      <iframe width="600" height="450" frameborder="0" style="border:0"
+      src="https://www.google.com/maps/embed/v1/search?q=<%= @search %>%20<%=@destination.to_api %>&key=AIzaSyBcF7WmTnqaJVXqW1u4Z2rhHEjOeiaNRtg" allowfullscreen></iframe>
+      <ul>
+    </div>
+  </div>
+
+  <div class="d-flex justify-content-center h-100 medpad">
+    <%= button_to "Back to search", destinations_path, params: {country_id: @destination.country_id}, method: :get, class: "btn btn-dark btn-sm", id: "btnpad" %>
+  </div>
+</div> <!-- to end container -->
