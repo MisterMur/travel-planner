@@ -1,4 +1,4 @@
-<h1>Activities in <%= @trip.to_s %></h1>
+<h1><%= @search.titlecase %> in <%= @trip.to_s %></h1>
 
 <!-- come back to this and make it look pretty -->
 
@@ -8,10 +8,10 @@ src="https://www.google.com/maps/embed/v1/search?q=<%= @search%>%20<%=@trip.to_a
 
 <% @activities.each do |activity| %>
   <% if activity.photo_url != "Photo Unavailable" %>
-  <li><%= link_to activity.name, activity_path(id: activity.id, trip_id: @trip.id, date: @date)%> | Rating: <%= activity.rating %><br>
+  <li><%= link_to activity.name, activity_path(id: activity.id, trip_id: @trip.id, date: @date, search: @search)%> | Rating: <%= activity.rating %><br>
   <img height="100" src="<%= activity.photo_url %>"></li>
   <% else %>
-  <li><%= link_to activity.name, activity_path(id: activity.id, trip_id: @trip.id, date: @date)%> Rating: <%= activity.rating %></li>
+  <li><%= link_to activity.name, activity_path(id: activity.id, trip_id: @trip.id, date: @date, search: @search)%> Rating: <%= activity.rating %></li>
   <% end %>
 <% end %>
 </ul>

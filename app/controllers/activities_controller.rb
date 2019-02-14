@@ -5,7 +5,12 @@ class ActivitiesController < ApplicationController
     #have it render on the page so it can be carried across
     # byebug
     @search = params[:search]
-    @date = params[:trip_activity][:date]
+
+    if !!params[:date]
+      @date = params[:date]
+    else
+      @date = params[:trip_activity][:date]
+    end
     # byebug
     find_trip
 
@@ -20,10 +25,14 @@ class ActivitiesController < ApplicationController
   end
 
   def show
-    # byebug
     find_activity
     find_trip
     @date = params[:date]
+
+    if !!params[:search]
+      @search = params[:search]
+    end
+
     @trip_activity = TripActivity.select_trip_activity(trip_id: params[:trip_id], activity_id: params[:id])
   end
 

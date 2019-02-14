@@ -1,6 +1,4 @@
-<h5><%= @user.to_s %></h5>
-
-<h3>Your Upcoming Trips</h3>
+<h2>Your Upcoming Trips</h2>
 <% if @user.trips == [] %>
   <img height="400" src="<%= Image.all.sample.url %>"><br>
   <h4>You don't have any upcoming trips!</h4>
@@ -14,3 +12,5 @@
     <% end %>
   <% end %>
 <% end %>
+<br>
+<%= button_to "Create New Trip", new_trip_path(@user.id), method: :get %>

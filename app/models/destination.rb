@@ -1,6 +1,7 @@
 class Destination < ApplicationRecord
   belongs_to :state
   has_many :activities
+  has_many :wishlists
 
 
   def self.view_cities(country_id) #this should return the cities of a country
@@ -11,6 +12,10 @@ class Destination < ApplicationRecord
 
   def country_name
     self.state.country.name
+  end
+
+  def country_id
+    self.state.country_id
   end
 
   def state_name
@@ -32,6 +37,7 @@ class Destination < ApplicationRecord
   def to_api
     self.city + "%20" + self.country_name
   end
+
 
 
 end #end of Destination class
