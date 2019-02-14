@@ -1,7 +1,6 @@
 class ActivitiesController < ApplicationController
-<<<<<<< HEAD
 skip_before_action :authorized, only: [:show]
-=======
+
   def get_search_image(q)
     # byebug
     imgs = Google::Search::Image.new(:query =>q).each do |image|
@@ -10,7 +9,7 @@ skip_before_action :authorized, only: [:show]
        imgs.first
        byebug
   end
->>>>>>> 4f1711b7deb488fa735f7987a0a3be93d92085d1
+
 
   def index
     #get param that are passed through

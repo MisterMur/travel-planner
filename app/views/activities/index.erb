@@ -15,6 +15,3 @@ src="https://www.google.com/maps/embed/v1/search?q=<%= @search%>%20<%=@trip.to_a
   <% end %>
 <% end %>
 </ul>
-
-  <img src="<% Google::Search::Image.new(:query => 'Cookies').first.uri %>" alt="no photo">
-  
