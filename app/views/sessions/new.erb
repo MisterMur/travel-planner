@@ -1,23 +1,22 @@
 <div class="container">
-
-  <div class="d-flex justify-content-center h-100">
-  </div>
-
 	<div class="d-flex justify-content-center h-100">
 
-		<div class="card" id="main">
-			<div class="card-header">
+
+		<div class="card lgpad" id="login">
+
+			<div class="d-inline-flex card-header justify-content-center">
 				<h3>Sign In</h3>
 			</div>
-			<div class="card-body">
+			<div class="d-inline-flex card-body justify-content-center smpad">
+
 				<%= form_tag(login_path) do %>
 					<div class="input-group form-group">
 						<div class="input-group-prepend">
 							<span class="input-group-text"><i class="fas fa-user"></i></span>
 						</div>
             <%= text_field_tag :username, nil, placeholder: '  username' %>
-
 					</div>
+
 					<div class="input-group form-group">
 						<div class="input-group-prepend">
 							<span class="input-group-text"><i class="fas fa-key"></i></span>
@@ -25,12 +24,15 @@
             <%= text_field_tag :password, nil, placeholder: '  password' %>
 					</div>
 
-					<div class="form-group">
-            <%= submit_tag 'Login', class: "btn float-none login_btn" %>
-            <p><%= flash[:notice] %></p>
+					<div class="input-group form-group">
+            <%= submit_tag 'Login', class: "btn btn-dark btn-sm", id: "btnpad" %>
+
+              <%= flash[:notice]%>
+
 					</div>
 				<% end %>
 			</div>
+
 			<div class="card-footer">
         <div class="d-flex justify-content-center links">
 					Don't have an account?

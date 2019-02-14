@@ -51,37 +51,33 @@
     </div>
 
     <% else %>
-    <div class="nav nav-pills">
-      <li class="nav-item">
-        <%= link_to "Home", home_path, method: :get, class: "nav-link"%>
-      </li>
+    <div class="navbar">
 
-      <li class="nav-item">
-        <%= link_to "Explore Destinations", destinations_path, method: :get, class: "nav-link"%>
-      </li>
+    <nav class="navbar float-left">
+      <ul class="nav nav-pills sticky-top">
+        <li class="nav-item">
+          <%= link_to "Home", home_path, method: :get, class: "nav-link"%>
+        </li>
+        <li class="nav-item">
+          <%= link_to "Explore Destinations", destinations_path, method: :get, class: "nav-link"%>
+        </li>
+      </ul>
+    </nav>
 
-      <% if current_path != login_path  %>
-        <%= form_tag(login_path) do %>
-          <div class="input-group form-group">
-            <div class="input-group-prepend">
-              <span class="input-group-text"><i class="fas fa-user"></i></span>
-            </div>
-            <%= text_field_tag :username, nil, placeholder: '  username' %>
-
-
-            <div class="input-group-prepend">
-              <span class="input-group-text"><i class="fas fa-key"></i></span>
-            </div>
-            <%= text_field_tag :password, nil, placeholder: '  password' %>
-
-            <%= submit_tag 'Login', class: "btn float-left login_btn" %>
-            <%= button_to "Create Account", new_user_path, method: "get", class: "btn float-right login_btn" %>
-          </div>
+    <nav class="navbar float-right">
+      <form class="form-inline">
+        <% if current_path != home_path && current_path != login_path%>
+          <%= form_tag(login_path) do %>
+            <%= text_field_tag :username, nil, placeholder: '  username', class: "tinypad", id: "inputsm"%>
+            <%= text_field_tag :password, nil, placeholder: '  password', class: "tinypad", id: "inputsm" %>
+            <%= submit_tag 'Login', class: "btn float-right login_btn" %>
+          <% end %>
         <% end %>
-        <% end %>
-    </div>
+      <% end %>
+    </form>
+  </nav>
+</div>
 
-    <% end %>
 
 
     <%= yield %>
