@@ -1,17 +1,20 @@
-<% if @country == nil %>
-  <h2>Explore Destinations</h2>
-  <%= form_tag destinations_path, method: "get" do %>
-    <h4>Select Country:
-      <%= collection_select :destination, :country_id, Country.all, :id, :name %>
-    <%= submit_tag("Search") %></h4>
-  <% end %>
-<% else %>
-  <h2>Explore Destinations in <%= @country.name %></h2>
-  <%= form_tag destination_path(:id), method: "get" do %>
-    <h4>Select City:
-      <%= collection_select :destination, :id, @destinations, :id, :state_city %></h4>
-    <h4>Select Things to See:
-      <%= collection_select :activity, :type, @country.activity_choices, :to_s, :to_s %></h4>
-    <%= submit_tag("Search") %>
+<div class="container">
+
+    <% if @country == nil %>
+      <h2>Explore Destinations</h2>
+      <%= form_tag destinations_path, method: "get" do %>
+        <h4>Select Country:
+          <%= collection_select :destination, :country_id, Country.all, :id, :name %>
+        <%= submit_tag("Search") %></h4>
+      <% end %>
+    <% else %>
+      <h2>Explore Destinations in <%= @country.name %></h2>
+      <%= form_tag destination_path(:id), method: "get" do %>
+        <h4>Select City:
+          <%= collection_select :destination, :id, @destinations, :id, :state_city %></h4>
+        <h4>Select Things to See:
+          <%= collection_select :activity, :type, @country.activity_choices, :to_s, :to_s %></h4>
+        <%= submit_tag("Search") %>
+        <% end %>
     <% end %>
-<% end %>
+</div>
