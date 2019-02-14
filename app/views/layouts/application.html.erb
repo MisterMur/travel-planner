@@ -20,7 +20,9 @@
         <%= link_to "Explore Destinations", destinations_path, method: :get %>
       </div>
     <% else %>
-      <%= link_to "Login", login_path, method: :get%>
+      <%= link_to "Home", home_path, method: :get%> |
+      <%= link_to "Login", login_path, method: :get%> |
+      <%= link_to "Explore Destinations", destinations_path, method: :get %>
     <% end %>
 
     <%= yield %>

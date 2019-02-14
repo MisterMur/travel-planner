@@ -1,4 +1,5 @@
 class DestinationsController < ApplicationController
+  skip_before_action :authorized
 
   def index
     # byebug

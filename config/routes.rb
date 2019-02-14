@@ -5,7 +5,7 @@ Rails.application.routes.draw do
   resources :destinations
   resources :users
 
-
+  get '/', to: 'application#index', as: 'home'
   get '/login', to: 'sessions#new', as: 'login'
   post '/login', to: 'sessions#create'
   delete 'sessions', to: "sessions#destroy"

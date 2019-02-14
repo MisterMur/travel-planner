@@ -1,4 +1,5 @@
 class ActivitiesController < ApplicationController
+skip_before_action :authorized, only: [:show]
 
   def index
     #get param that are passed through

@@ -1,5 +1,5 @@
 class ApplicationController < ActionController::Base
-  before_action :authorized
+  before_action :authorized, except: [:index]
   helper_method :current_user, :logged_in?
 
   def current_user
@@ -12,6 +12,10 @@ class ApplicationController < ActionController::Base
 
   def authorized
     redirect_to login_path unless logged_in?
+  end
+
+  def index
+    render :'applications/index'
   end
 
 end #end of ApplicationController
