@@ -1,10 +1,22 @@
 class ActivitiesController < ApplicationController
+<<<<<<< HEAD
 skip_before_action :authorized, only: [:show]
+=======
+  def get_search_image(q)
+    # byebug
+    imgs = Google::Search::Image.new(:query =>q).each do |image|
+      file.write %(<img src="#{image.uri}">)
+       end
+       imgs.first
+       byebug
+  end
+>>>>>>> 4f1711b7deb488fa735f7987a0a3be93d92085d1
 
   def index
     #get param that are passed through
     #have it render on the page so it can be carried across
     # byebug
+    # @image = get_search_image
     @search = params[:search]
 
     if !!params[:date]

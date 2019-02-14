@@ -8,6 +8,7 @@ gem 'city-state'
 gem 'google_places'
 gem 'simple_form'
 gem 'bcrypt'
+gem 'google-search'
 gem 'bootstrap'
 gem 'jquery-rails'
 
