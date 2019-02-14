@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <title>TravelPlanner</title>
+    <title>Globe Trottr</title>
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
     <!-- Required meta tags -->
@@ -56,12 +56,30 @@
         <%= link_to "Home", home_path, method: :get, class: "nav-link"%>
       </li>
 
-      <li class="nav-item">
-        <%= link_to "Login", login_path, method: :get, class: "nav-link"%>
-      </li>
+
       <li class="nav-item">
         <%= link_to "Explore Destinations", destinations_path, method: :get, class: "nav-link"%>
       </li>
+
+      <% if current_path != login_path  %>
+        <%= form_tag(login_path) do %>
+          <div class="input-group form-group">
+            <div class="input-group-prepend">
+              <span class="input-group-text"><i class="fas fa-user"></i></span>
+            </div>
+            <%= text_field_tag :username, nil, placeholder: '  username' %>
+
+
+            <div class="input-group-prepend">
+              <span class="input-group-text"><i class="fas fa-key"></i></span>
+            </div>
+            <%= text_field_tag :password, nil, placeholder: '  password' %>
+
+            <%= submit_tag 'Login', class: "btn float-left login_btn" %>
+            <%= button_to "Create Account", new_user_path, method: "get", class: "btn float-right login_btn" %>
+          </div>
+        <% end %>
+        <% end %>
     </div>
 
     <% end %>

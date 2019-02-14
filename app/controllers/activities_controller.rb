@@ -1,14 +1,14 @@
 class ActivitiesController < ApplicationController
 skip_before_action :authorized, only: [:show]
-
-  def get_search_image(q)
-    # byebug
-    imgs = Google::Search::Image.new(:query =>q).each do |image|
-      file.write %(<img src="#{image.uri}">)
-       end
-       imgs.first
-       byebug
-  end
+  #
+  # def get_search_image(q)
+  #   # byebug
+  #   imgs = Google::Search::Image.new(:query =>q).each do |image|
+  #     file.write %(<img src="#{image.uri}">)
+  #      end
+  #      imgs.first
+  #      byebug
+  # end
 
 
   def index
