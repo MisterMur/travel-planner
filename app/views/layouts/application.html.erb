@@ -24,19 +24,19 @@
       <nav class="navbar float-left">
         <ul class="nav nav-pills sticky-top">
 
-          <li class="nav-item">
+          <li class="navbar nav">
             <%=link_to 'Logout', sessions_path, method: :delete, class: "nav-link"%>
           </li>
 
-          <li class="nav-item">
+          <li class="navbar nav">
             <%= link_to "Edit Profile", edit_user_path(current_user.id), method: :get, class: "nav-link"%>
           </li>
 
-          <li class="nav-item">
+          <li class="navbar inverse">
             <%= link_to "My Trips", user_path(current_user.id), method: :get, class: "nav-link" %>
           </li>
 
-          <li class="nav-item">
+          <li class="navbar inverse">
             <%= link_to "Explore Destinations", destinations_path, method: :get, class: "nav-link" %>
           </li>
         </ul>
