@@ -4,6 +4,7 @@ class Trip < ApplicationRecord
   has_many :trip_activities
   has_many :activities, through: :trip_activities
   validate :date_range
+  validates :destination_id, presence: true
 
   # validates :start_date, :destination_id, presence: true
 

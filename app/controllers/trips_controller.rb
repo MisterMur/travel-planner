@@ -16,6 +16,7 @@ class TripsController < ApplicationController
     # byebug
     @trip = Trip.new(trip_params)
     @trip.user_id = current_user.id
+
     if @trip.trip_name == nil || @trip.trip_name == ""
       @trip.trip_name = "-----------"
     end
@@ -24,9 +25,11 @@ class TripsController < ApplicationController
       @trip.save
       redirect_to @trip
     else
-      @country = Country.find_by_destination(id: params[:trip][:destination_id].to_i)
-      # @destination_name = @trip.destination.state_city
-      @destination_cities = Destination.view_cities(Destination.find(params[:trip][:destination_id].to_i).country_id)
+      if params[:trip][:destination_id] != ""
+        @country = Country.find_by_destination(id: params[:trip][:destination_id].to_i)
+        # @destination_name = @trip.destination.state_city
+        @destination_cities = Destination.view_cities(Destination.find(params[:trip][:destination_id].to_i).country_id)
+      end
       flash[:errors] = @trip.errors.full_messages
       render :new
     end
