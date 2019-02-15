@@ -1,5 +1,6 @@
 <div class="container show-white">
-  <div class="d-flex justify-content-center h-100 headpad">
+
+  <div class="d-flex justify-content-center h-100 medpad">
     <h2><%= @search %> in <%= @destination.city %></h2>
   </div>
 
@@ -28,6 +29,6 @@
   </div>
 
   <div class="d-flex justify-content-center h-100 medpad">
-    <%= button_to "Back to search", destinations_path, params: {country_id: @destination.country_id}, method: :get, class: "btn btn-primary btn-sm", id: "btnpad" %>
+    <%= button_to "Back to search", destinations_path, params: {country_id: @destination.country_id}, method: :get, class: "btn btn-custom btn-sm", id: "btnpad" %>
   </div>
 </div> <!-- to end container -->

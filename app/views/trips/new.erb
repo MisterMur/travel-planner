@@ -15,7 +15,7 @@
           <%= collection_select :destination, :country_id, Country.all, :id, :name %>
     </div>
     <div class="d-flex justify-content-center h-100 smpad">
-        <%= submit_tag("Search", class: "btn btn-primary btn-sm smpad", id: "btnpad") %>
+        <%= submit_tag("Search", class: "btn btn-custom btn-sm smpad", id: "btnpad") %>
       <% end %>
     </div>
 
@@ -25,7 +25,12 @@
       <h3>New Trip to <%= @country.name %></h3>
     </div>
 
+    <!-- <div class="d-flex justify-content-center h-100 smpad">
+          <%# <%= flash[:errors] %> %>
+    </div> -->
+
     <div class="d-flex justify-content-center h-100 smpad">
+
       <%= simple_form_for @trip do |f| %>
         <h6><%= f.label :trip_name %>
         <%= f.text_field :trip_name, list: 'trip_names' %>
@@ -34,7 +39,11 @@
             <option value="<%= trip %>"></option>
           <% end %>
         </datalist></h6>
-        <h6><%= f.input :destination_id, collection: @destination_cities, label_method: :state_city%></h6>
+        <% if @destination_name == nil %>
+          <h6><%= f.input :destination_id, collection: @destination_cities, label_method: :state_city%></h6>
+        <% else %>
+          <h6><%= f.input :destination_id, collection: @destination_cities, label_method: :state_city, value_method: @destination_name%></h6>
+        <% end %>
         <h6><%= f.input :start_date, as: :date, start_year: Date.today.year,
                                     end_year: Date.today.year + 5,
                                     order: [:month, :day, :year] %></h6>
@@ -42,7 +51,7 @@
                                     end_year: Date.today.year + 5,
                                     order: [:month, :day, :year] %></h6>
         <div class="d-flex justify-content-center">
-          <%= f.button :submit, class: "btn btn-primary btn-sm smpad", id: "btnpad" %>
+          <%= f.button :submit, class: "btn btn-custom btn-sm smpad", id: "btnpad" %>
         </div>
       <% end %>
 

@@ -24,6 +24,10 @@ class TripsController < ApplicationController
       @trip.save
       redirect_to @trip
     else
+      # byebug
+      @country = Country.find_by_destination(id: params[:trip][:destination_id].to_i)
+      @destination_name = @trip.destination.state_city
+      flash[:errors] = @trip.errors.full_messages
       render :new
     end
   end

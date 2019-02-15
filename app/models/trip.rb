@@ -3,8 +3,16 @@ class Trip < ApplicationRecord
   belongs_to :destination
   has_many :trip_activities
   has_many :activities, through: :trip_activities
+  validate :date_range
 
   # validates :start_date, :destination_id, presence: true
+
+  def date_range
+    if self.start_date > self.end_date
+      # errors.add(:start_date, "This date range is invalid")
+      errors.add(:end_date, "End date must be after start date")
+    end
+  end
 
   def to_s
     # byebug

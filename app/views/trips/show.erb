@@ -1,10 +1,10 @@
 <div class="container">
 
-  <div class="d-flex justify-content-center h-100 smpad">
+  <div class="d-flex justify-content-center h-100 headpad">
     <h2>Your Trip to <%= @trip.to_s %></h2>
   </div>
 
-  <div class="d-flex justify-content-center h-100 headpad">
+  <div class="d-flex justify-content-center h-100 subpad">
     <h5>Dates: <%= @trip.start_date.strftime("%m/%d/%Y") %> - <%= @trip.end_date.strftime("%m/%d/%Y") %></h5>
   </div>
 
@@ -39,7 +39,7 @@
 
   <br>
   <div class="d-flex justify-content-center h-100 bottom-pad">
-  <p><%= button_to "Delete this trip", @trip, method: "delete", class: "btn btn-primary btn-sm", id: "btnpad" %></p>
+  <p><%= button_to "Delete this trip", @trip, method: "delete", class: "btn btn-custom btn-sm", id: "btnpad" %></p>
   </div>
 
 

@@ -12,7 +12,7 @@
       <h4>You don't have any upcoming trips!</h4>
     </div>
     <div class="d-flex justify-content-center h-100 smpad">
-      <%= button_to "Click here to get started", new_trip_path(@user), method: :get, class: "btn btn-primary btn-sm", id: "btnpad" %>
+      <%= button_to "Click here to get started", new_trip_path(@user), method: :get, class: "btn btn-custom btn-sm", id: "btnpad" %>
     </div>
   <% else %>
 
@@ -43,7 +43,7 @@
     <% end %>
 
     <div class="d-flex justify-content-center h-100 bottom-pad">
-      <%= button_to "Create New Trip", new_trip_path(@user.id), method: :get, class: "btn btn-primary btn-sm", id: "btnpad" %>
+      <%= button_to "Create New Trip", new_trip_path(@user.id), method: :get, class: "btn btn-custom btn-sm", id: "btnpad" %>
     </div>
   <% end %>
 
