@@ -23,10 +23,14 @@
           <div class="form-group smpad">
               <%= f.input :password %>
           </div>
+
+          <div class="form-group smpad">
+              <%= f.input :private, label: "Make profile private", as: :boolean, checked_value: true, unchecked_value: false %>
+          </div>
       </div>
 
           <div class="d-inline-flex justify-content-center smpad">
-              <%= f.button :submit, class: "btn btn-dark btn-small" %>
+              <%= f.button :submit, class: "btn btn-primary btn-small" %>
           </div>
         <% end %>
 

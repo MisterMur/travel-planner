@@ -1,0 +1,21 @@
+<div class="container">
+
+  <div class="">
+    <h3>Welcome to the globe trottr community!</h3>
+  </div>
+
+  <div class="">
+    <% @users.each do |user| %>
+      <% if user.private == false %>
+        <h5><%= user.username %> is going to:</h5>
+        <ul>
+          <% user.view_destinations.each do |destination|  %>
+            <li><%= destination %></li>
+          <% end %>
+        </ul>
+      <% end %>
+    <% end %>
+  </div>
+
+
+</div>

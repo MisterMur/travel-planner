@@ -8,7 +8,7 @@
     <div class="col-sm-6">
       <% @activities.each do |activity| %>
         <% if activity.photo_url != "Photo Unavailable" %>
-          <p><img height="100" width="180" src="<%= activity.photo_url %>"> &nbsp&nbsp
+          <p><img height="80" width="120" src="<%= activity.photo_url %>"> &nbsp&nbsp
           <%= link_to activity.name, activity_path(id: activity.id, trip_id: @trip.id, date: @date, search: @search)%> | Rating: <%= activity.rating %></p>
 
         <% else %>
@@ -25,6 +25,6 @@
   </div>
 
   <div class="d-flex justify-content-center h-100 bottom-pad">
-    <%= button_to "Back to trip", @trip, method: :get, class: "btn btn-dark btn-sm smpad", id: "btnpad" %>
+    <%= button_to "Back to trip", @trip, method: :get, class: "btn btn-primary btn-sm smpad", id: "btnpad" %>
   </div>
 </div>

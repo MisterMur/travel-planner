@@ -14,8 +14,8 @@
     <div class="d-flex justify-content-center h-100">
           <%= collection_select :destination, :country_id, Country.all, :id, :name %>
     </div>
-    <div class="d-flex justify-content-center h-100 smpad">
-        <%= submit_tag("Search", class: "btn btn-dark btn-sm", id: "btnpad") %>
+    <div class="d-flex justify-content-center h-100 medpad">
+        <%= submit_tag("Search", class: "btn btn-primary btn-sm", id: "btnpad") %>
       <% end %>
     </div>
 
@@ -34,8 +34,8 @@
           <%= collection_select :activity, :type, @country.activity_choices, :to_s, :to_s %></h6>
       </div>
 
-      <div class="d-flex justify-content-center h-100 smpad">
-        <%= submit_tag("Explore", class: "btn btn-dark btn-sm", id: "btnpad")%>
+      <div class="d-flex justify-content-center h-100 medpad">
+        <%= submit_tag("Explore", class: "btn btn-primary btn-sm", id: "btnpad")%>
       </div>
         <% end %>
 

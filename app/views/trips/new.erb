@@ -15,7 +15,7 @@
           <%= collection_select :destination, :country_id, Country.all, :id, :name %>
     </div>
     <div class="d-flex justify-content-center h-100 smpad">
-        <%= submit_tag("Search", class: "btn btn-dark btn-sm", id: "btnpad") %>
+        <%= submit_tag("Search", class: "btn btn-primary btn-sm smpad", id: "btnpad") %>
       <% end %>
     </div>
 
@@ -42,7 +42,7 @@
                                     end_year: Date.today.year + 5,
                                     order: [:month, :day, :year] %></h6>
         <div class="d-flex justify-content-center">
-          <%= f.button :submit, class: "btn btn-dark btn-sm smpad", id: "btnpad" %>
+          <%= f.button :submit, class: "btn btn-primary btn-sm smpad", id: "btnpad" %>
         </div>
       <% end %>
 

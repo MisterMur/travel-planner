@@ -24,13 +24,7 @@
       <nav class="navbar float-left">
         <ul class="nav nav-pills sticky-top">
 
-          <li class="navbar nav">
-            <%=link_to 'Logout', sessions_path, method: :delete, class: "nav-link"%>
-          </li>
 
-          <li class="navbar nav">
-            <%= link_to "Edit Profile", edit_user_path(current_user.id), method: :get, class: "nav-link"%>
-          </li>
 
           <li class="navbar inverse">
             <%= link_to "My Trips", user_path(current_user.id), method: :get, class: "nav-link" %>
@@ -46,6 +40,14 @@
         <span class="navbar-text float-right small-type">
           Currently logged in as <%= current_user.to_s %>
         </span>
+        <ul class="nav nav-pills sticky-top">
+        <li class="navbar nav">
+          <%=link_to 'Logout', sessions_path, method: :delete, class: "small-type"%>
+        </li>
+        <li class="navbar nav">
+          <%= link_to "Edit Profile", edit_user_path(current_user.id), method: :get, class: "small-type"%>
+        </li>
+        </ul>
       </nav>
 
     </div>

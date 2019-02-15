@@ -10,7 +10,7 @@ class User < ApplicationRecord
   # validates :password, length: { in: 4..12 }
 
   def view_destinations
-    self.destinations.map{|destination| destination.name}
+    self.destinations.map{|destination| destination.to_s}
   end
 
   def to_s

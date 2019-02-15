@@ -31,6 +31,10 @@ class TripsController < ApplicationController
   def show
     # byebug
     @trip_activities = @trip.trip_activities.sort_by{|t| t.date}
+
+    if @trip.user_id != session[:user_id]
+      redirect_to User.find(session[:user_id])
+    end
   end
 
   def edit

@@ -18,7 +18,14 @@ class UsersController < ApplicationController
     end
   end
 
+  def index
+    @users = User.all
+  end
+
   def show
+    if @user.id != session[:user_id]
+      redirect_to User.find(session[:user_id])
+    end
   end
 
   def edit
@@ -26,7 +33,7 @@ class UsersController < ApplicationController
 
   def update
     @user.update(user_params)
-    
+
     if @user.valid?
       redirect_to @user
     else
@@ -47,7 +54,7 @@ class UsersController < ApplicationController
   end
 
   def user_params
-    params.require(:user).permit(:first_name, :last_name, :birthdate, :email, :username, :password)
+    params.require(:user).permit(:first_name, :last_name, :birthdate, :email, :username, :password, :private)
   end
 
 end

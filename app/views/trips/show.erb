@@ -12,12 +12,16 @@
 
     <div class="col-sm-6 items">
       <h5 class="head-pad">Current Itinerary:</h5>
-        <% @trip_activities.each do |ta| %>
-          <p><%= ta.date %> -
-          <%= link_to ta.activity.name, activity_path(id: ta.activity_id, trip_id: @trip.id) %> -
-          Rating: <%= ta.activity.rating %>
-          </p>
-        <% end %>
+      <% if @trip_activities != [] %>
+          <% @trip_activities.each do |ta| %>
+            <p><%= ta.date %> -
+            <%= link_to ta.activity.name, activity_path(id: ta.activity_id, trip_id: @trip.id) %> -
+            Rating: <%= ta.activity.rating %>
+            </p>
+          <% end %>
+      <% else %>
+        <img src="<%= Image.all.sample.url %>" height="250" width="400">
+      <% end %>
     </div>
 
     <div class="col-sm-6 items">
@@ -35,7 +39,7 @@
 
   <br>
   <div class="d-flex justify-content-center h-100 bottom-pad">
-  <p><%= button_to "Delete this trip", @trip, method: "delete", class: "btn btn-dark btn-sm", id: "btnpad" %></p>
+  <p><%= button_to "Delete this trip", @trip, method: "delete", class: "btn btn-primary btn-sm", id: "btnpad" %></p>
   </div>
 
 

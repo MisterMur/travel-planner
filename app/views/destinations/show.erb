@@ -1,4 +1,4 @@
-<div class="container">
+<div class="container show-white">
   <div class="d-flex justify-content-center h-100 headpad">
     <h2><%= @search %> in <%= @destination.city %></h2>
   </div>
@@ -6,15 +6,21 @@
   <div class="row">
 
 
-    <div class="col-sm-5">
+    <div class="col-sm-6">
     <% @activities.each do |activity| %>
-      <p><%= link_to activity.name, activity_path(id: activity.id, search: @search) %> | Rating: <%= activity.rating %></p>
+      <% if activity.photo_url != "Photo Unavailable" %>
+        <p><img height="80" width="120" src="<%= activity.photo_url %>"> &nbsp&nbsp
+        <%= link_to activity.name, activity_path(id: activity.id, search: @search)%> | Rating: <%= activity.rating %></p>
+
+      <% else %>
+        <p><%= link_to activity.name, activity_path(id: activity.id, search: @search) %> | Rating: <%= activity.rating %></p>
+      <% end %>
     <% end %>
 
 
     </div>
 
-    <div class="col-sm-4 float-right">
+    <div class="col-sm-5 float-right">
       <iframe width="600" height="450" frameborder="0" style="border:0"
       src="https://www.google.com/maps/embed/v1/search?q=<%= @search %>%20<%=@destination.to_api %>&key=AIzaSyBcF7WmTnqaJVXqW1u4Z2rhHEjOeiaNRtg" allowfullscreen></iframe>
       <ul>
@@ -22,6 +28,6 @@
   </div>
 
   <div class="d-flex justify-content-center h-100 medpad">
-    <%= button_to "Back to search", destinations_path, params: {country_id: @destination.country_id}, method: :get, class: "btn btn-dark btn-sm", id: "btnpad" %>
+    <%= button_to "Back to search", destinations_path, params: {country_id: @destination.country_id}, method: :get, class: "btn btn-primary btn-sm", id: "btnpad" %>
   </div>
 </div> <!-- to end container -->
