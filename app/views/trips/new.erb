@@ -39,11 +39,7 @@
             <option value="<%= trip %>"></option>
           <% end %>
         </datalist></h6>
-        <% if @destination_name == nil %>
           <h6><%= f.input :destination_id, collection: @destination_cities, label_method: :state_city%></h6>
-        <% else %>
-          <h6><%= f.input :destination_id, collection: @destination_cities, label_method: :state_city, value_method: @destination_name%></h6>
-        <% end %>
         <h6><%= f.input :start_date, as: :date, start_year: Date.today.year,
                                     end_year: Date.today.year + 5,
                                     order: [:month, :day, :year] %></h6>
