@@ -26,7 +26,7 @@ class DestinationsController < ApplicationController
 
     activity = Activity.get_spots(@search, @destination.id)
     Activity.create_by_api_connection(activity, @destination.id, @search)
-    @activities = Activity.select_by_search_and_destination(@search, @destination.id)
+    @activities = Activity.select_by_search_and_destination(@search, @destination.id).sort_by{|a| a.rating}.reverse
     # byebug
     # bars = Activity.get_spots("bars", @destination.id)
     # Activity.create_by_api_connection(bars, @destination.id, "bars")

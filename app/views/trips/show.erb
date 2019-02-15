@@ -1,24 +1,42 @@
-<h2>Your Trip to <%= @trip.to_s %></h2>
-<h4>Dates: <%= @trip.start_date.strftime("%m/%d/%Y") %> - <%= @trip.end_date.strftime("%m/%d/%Y") %></h4>
+<div class="container">
 
-<h3>Add Itinerary Activity:</h3>
-  <%= form_tag activities_path, method: "get" do %>
-      <p><label>Date&nbsp</label><%= collection_select :trip_activity, :date, @trip.trip_dates, :to_s, :to_s%> &nbsp&nbsp
-      <label>Search for activity&nbsp</label><input type="text" name="search">
-    <%= hidden_field_tag :trip_id, @trip.id %>
-    <%= submit_tag("Search")%></p>
-  <% end %>
+  <div class="d-flex justify-content-center h-100 smpad">
+    <h2>Your Trip to <%= @trip.to_s %></h2>
+  </div>
 
-<h3>Current Itinerary:</h3>
-  <% @trip_activities.each do |ta| %>
-    <p><%= ta.date %> -
-    <%= link_to ta.activity.name, activity_path(id: ta.activity_id, trip_id: @trip.id) %> -
-    Rating: <%= ta.activity.rating %>
-    </p>
-  <% end %>
+  <div class="d-flex justify-content-center h-100 headpad">
+    <h5>Dates: <%= @trip.start_date.strftime("%m/%d/%Y") %> - <%= @trip.end_date.strftime("%m/%d/%Y") %></h5>
+  </div>
+
+  <div class="row">
+
+    <div class="col-sm-6 items">
+      <h5 class="head-pad">Current Itinerary:</h5>
+        <% @trip_activities.each do |ta| %>
+          <p><%= ta.date %> -
+          <%= link_to ta.activity.name, activity_path(id: ta.activity_id, trip_id: @trip.id) %> -
+          Rating: <%= ta.activity.rating %>
+          </p>
+        <% end %>
+    </div>
+
+    <div class="col-sm-6 items">
+
+        <%= form_tag activities_path, method: "get" do %>
+          <h5 class="head-pad">Add to Itinerary</h5>
+            <p>Date&nbsp<%= collection_select :trip_activity, :date, @trip.trip_dates, :to_s, :to_s%></p>
+            <p>Search for activity&nbsp<input type="text" name="search">
+          <%= hidden_field_tag :trip_id, @trip.id %>
+          <%= submit_tag("Search")%></p>
+        <% end %>
+    </div>
+
+  </div>
+
+  <br>
+  <div class="d-flex justify-content-center h-100 bottom-pad">
+  <p><%= button_to "Delete this trip", @trip, method: "delete", class: "btn btn-dark btn-sm", id: "btnpad" %></p>
+  </div>
 
 
-
-
-<br>
-<p><%= button_to "Delete this trip", @trip, method: "delete" %></p>
+</div>

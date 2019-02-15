@@ -43,7 +43,7 @@
       </nav>
 
       <nav class="navbar float-right">
-        <span class="navbar-text float-right">
+        <span class="navbar-text float-right small-type">
           Currently logged in as <%= current_user.to_s %>
         </span>
       </nav>
@@ -65,16 +65,16 @@
     </nav>
 
     <nav class="navbar float-right">
-      <form class="form-inline">
+      <span class="form-inline">
         <% if current_path != home_path && current_path != login_path%>
           <%= form_tag(login_path) do %>
             <%= text_field_tag :username, nil, placeholder: '  username', class: "tinypad", id: "inputsm"%>
-            <%= text_field_tag :password, nil, placeholder: '  password', class: "tinypad", id: "inputsm" %>
+            <%= password_field_tag :password, nil, placeholder: '  password',  class: "tinypad", id: "inputsm" %>
             <%= submit_tag 'Login', class: "btn float-right login_btn" %>
           <% end %>
         <% end %>
       <% end %>
-    </form>
+    </span>
   </nav>
 </div>
 

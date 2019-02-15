@@ -1,7 +1,12 @@
 <div class="container">
-  <div class="d-flex justify-content-center h-100 headpad">
+  <div class="d-flex justify-content-center h-100 smpad">
     <h2><%= @activity.name %></h2>
   </div>
+  <% if @activity.trips.include?(@trip) %>
+  <div class="d-flex justify-content-center h-100 headpad">
+    <h5>You're headed here on <%= @trip_activity.date %>!</h5>
+  </div>
+  <% end %>
 
   <div class="row">
 
@@ -30,17 +35,20 @@
   </div>
 
 
-
-<div class="d-flex justify-content-center h-100 medpad">
   <% if @activity.trips.include?(@trip) %>
-    <h4>You're headed there on <%= @trip_activity.date %>!</h4>
-    <p><%= button_to "Delete from itinerary", @activity, method: :delete, params: {trip_id: @trip.id, activity_id: @activity.id}, class: "btn btn-dark btn-sm", id: "btnpad" %>
-    <%= button_to "Back to trip", @trip, method: :get, class: "btn btn-dark btn-sm", id: "btnpad" %></p>
+  <div class="d-flex justify-content-center h-100 bottom-pad">
+    <%= button_to "Back to trip", @trip, method: :get, class: "btn btn-dark btn-sm smpad", id: "btnpad" %>
+    <%= button_to "Delete from itinerary", @activity, method: :delete, params: {trip_id: @trip.id, activity_id: @activity.id}, class: "btn btn-dark btn-sm smpad", id: "btnpad" %>
+  </div>
   <% elsif !!@trip%>
-      <%= button_to "Add to itinerary", activities_add_to_trip_path, method: :post, params: {trip_id: @trip.id, activity_id: @activity.id, date: @date.to_s}, class: "btn btn-dark btn-sm", id: "btnpad" %>
-      <%= button_to "Return to activities", activities_path, params: {trip_id: @trip.id, search: @search, date: @date.to_s}, method: :get, class: "btn btn-dark btn-sm", id: "btnpad" %>
+  <div class="d-flex justify-content-center h-100 bottom-pad">
+      <%= button_to "Add to itinerary", activities_add_to_trip_path, method: :post, params: {trip_id: @trip.id, activity_id: @activity.id, date: @date.to_s}, class: "btn btn-dark btn-sm smpad", id: "btnpad" %>
+      <%= button_to "Return to #{@search}", activities_path, params: {trip_id: @trip.id, search: @search, date: @date.to_s}, method: :get, class: "btn btn-dark btn-sm smpad", id: "btnpad" %>
+  </div>
   <% else %>
-    <%= button_to "Return to #{@search}", destination_path(@activity.destination_id), params: {search: @search}, method: :get, class: "btn btn-dark btn-sm", id: "btnpad" %>
+  <div class="d-flex justify-content-center h-100 bottom-pad">
+    <%= button_to "Return to #{@search}", destination_path(@activity.destination_id), params: {search: @search}, method: :get, class: "btn btn-dark btn-sm smpad", id: "btnpad" %>
+  </div>
   <% end %>
 </div>
 

@@ -20,7 +20,7 @@ class User < ApplicationRecord
   def view_trip_names
     self.trips.map do |trip|
       trip.trip_name
-    end.uniq
+    end.uniq.sort
   end
 
   def select_trips(trip_name)

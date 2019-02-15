@@ -6,6 +6,7 @@ skip_before_action :authorized, only: [:new, :create]
   end
 
   def create
+    # byebug
     @user = User.find_by(username: params[:username])
 
     if @user && @user.authenticate(params[:password])

@@ -4,7 +4,7 @@ class Country < ApplicationRecord
   has_many :users, through: :trips
 
   def activity_choices
-    ["Restaurants", "Bars", "Museums", "Historic Sites"]
+    ["Restaurants", "Bars", "Museums", "Historic Sites", "Beaches", "Things to do", "Shopping"].sort
   end
 
 end #end of Country class
