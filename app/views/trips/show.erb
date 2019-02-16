@@ -34,9 +34,16 @@
           <%= submit_tag("Search")%></p>
         <% end %>
     </div>
-
   </div>
-
+  <div class="row upperpad">
+    <% if @trip_activities != [] %>
+      <% @trip_activities.each do |ta| %>
+        <% if ta.activity.photo_url != "Photo Unavailable" %>
+            <img height="100" width="150" class="tinypad" src="<%= ta.activity.photo_url %>" alt="">
+          <% end %>
+        <% end %>
+    <% end %>
+  </div>
   <br>
   <div class="d-flex justify-content-center h-100 bottom-pad">
   <p><%= button_to "Delete this trip", @trip, method: "delete", class: "btn btn-custom btn-sm", id: "btnpad" %></p>

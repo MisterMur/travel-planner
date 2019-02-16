@@ -3,7 +3,7 @@
 
     <% if @country == [] || @country == nil %>
 
-    <div class="d-flex justify-content-center h-100 headpad">
+    <div class="d-flex justify-content-center h-100 destination-pad">
       <h3>Create New Trip</h3>
     </div>
 
@@ -21,7 +21,7 @@
 
     <% else %>
 
-    <div class="d-flex justify-content-center h-100 headpad">
+    <div class="d-flex justify-content-center h-100 destination-pad">
       <h3>New Trip to <%= @country.name %></h3>
     </div>
 
@@ -39,7 +39,7 @@
             <option value="<%= trip %>"></option>
           <% end %>
         </datalist></h6>
-          <h6><%= f.input :destination_id, collection: @destination_cities, label_method: :state_city%></h6>
+          <h6><%= f.input :destination_id, collection: @destination_cities, label_method: :city_state%></h6>
         <h6><%= f.input :start_date, as: :date, start_year: Date.today.year,
                                     end_year: Date.today.year + 5,
                                     order: [:month, :day, :year] %></h6>

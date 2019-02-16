@@ -4,7 +4,7 @@
     <% if @country == nil %>
 
     <div class="d-flex justify-content-center h-100">
-      <h3 class="medpad">Explore Destinations</h3>
+      <h3 class="destination-pad">Explore Destinations</h3>
     </div>
 
     <div class="d-flex justify-content-center h-100">
@@ -22,14 +22,14 @@
     <% else %>
 
     <div class="d-flex justify-content-center h-100">
-      <h3 class="medpad">Explore Destinations in <%= @country.name %></h3>
+      <h3 class="destination-pad">Explore Destinations in <%= @country.name %></h3>
     </div>
 
       <div class="d-flex justify-content-center h-100">
       <%= form_tag destination_path(:id), method: "get" do %>
 
         <h6 class="smpad">Select City: &nbsp&nbsp
-          <%= collection_select :destination, :id, @destinations, :id, :state_city %></h6>
+          <%= collection_select :destination, :id, @destinations, :id, :city_state %></h6>
         <h6 class="smpad">Select Things to See: &nbsp&nbsp
           <%= collection_select :activity, :type, @country.activity_choices, :to_s, :to_s %></h6>
       </div>
