@@ -12,6 +12,9 @@
 
 ActiveRecord::Schema.define(version: 2019_02_15_152609) do
 
+  # These are extensions that must be enabled in order to support this database
+  enable_extension "plpgsql"
+
   create_table "activities", force: :cascade do |t|
     t.string "name"
     t.string "address"
@@ -45,8 +48,8 @@ ActiveRecord::Schema.define(version: 2019_02_15_152609) do
   end
 
   create_table "trip_activities", force: :cascade do |t|
-    t.integer "trip_id"
-    t.integer "activity_id"
+    t.bigint "trip_id"
+    t.bigint "activity_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.string "date"
@@ -55,8 +58,8 @@ ActiveRecord::Schema.define(version: 2019_02_15_152609) do
   end
 
   create_table "trips", force: :cascade do |t|
-    t.integer "user_id"
-    t.integer "destination_id"
+    t.bigint "user_id"
+    t.bigint "destination_id"
     t.date "start_date"
     t.date "end_date"
     t.datetime "created_at", null: false
@@ -78,4 +81,8 @@ ActiveRecord::Schema.define(version: 2019_02_15_152609) do
     t.boolean "private"
   end
 
+  add_foreign_key "trip_activities", "activities"
+  add_foreign_key "trip_activities", "trips"
+  add_foreign_key "trips", "destinations"
+  add_foreign_key "trips", "users"
 end

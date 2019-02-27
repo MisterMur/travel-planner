@@ -6,15 +6,15 @@
 #          USE THIS TO RE-SEED A NEW DATABASE            #
 ##########################################################
 
-# CS.countries.each do |country_code, country_name|
-#   country = Country.create(name: country_name)
-#   CS.states(country_code).each do |state_code, state_name|
-#     state = State.create(name: state_name, country_id: country.id)
-#     CS.cities(state_code, country_code).each do |city|
-#       Destination.create(city: city, state_id: state.id)
-#     end
-#   end
-# end
+CS.countries.each do |country_code, country_name|
+  country = Country.create(name: country_name)
+  CS.states(country_code).each do |state_code, state_name|
+    state = State.create(name: state_name, country_id: country.id)
+    CS.cities(state_code, country_code).each do |city|
+      Destination.create(city: city, state_id: state.id)
+    end
+  end
+end
 
 ########### this is to seed the images table
 
