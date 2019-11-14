@@ -6,7 +6,10 @@
     "gulp": "^4.0.0",
     "popper.js": "^1.14.7",
     "startbootstrap-grayscale": "^5.0.4",
-    "webpacker": "^4.6.0"
+    "webpacker": "^4.6.0",
+    "eslint":"^3.0.0",
+    "webpack":"^2.2.0 "
+
   },
   "devDependencies": {
     "webpack-dev-server": "2.11.2"
