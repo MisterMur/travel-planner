@@ -83,9 +83,10 @@ GEM
       execjs
     coffee-script-source (1.12.2)
     concurrent-ruby (1.1.5)
-    crass (1.0.5)
+    crass (1.0.6)
     erubi (1.9.0)
     execjs (2.7.0)
+    ffi (1.11.2)
     ffi (1.11.2-x64-mingw32)
     globalid (0.4.2)
       activesupport (>= 4.2.0)
@@ -110,7 +111,7 @@ GEM
       rb-fsevent (~> 0.9, >= 0.9.4)
       rb-inotify (~> 0.9, >= 0.9.7)
       ruby_dep (~> 1.2)
-    loofah (2.3.1)
+    loofah (2.19.1)
       crass (~> 1.0.2)
       nokogiri (>= 1.5.9)
     mail (2.7.1)
@@ -123,20 +124,22 @@ GEM
     mime-types-data (3.2019.1009)
     mimemagic (0.3.3)
     mini_mime (1.0.2)
-    mini_portile2 (2.4.0)
     minitest (5.13.0)
+    msgpack (1.3.1)
     msgpack (1.3.1-x64-mingw32)
     multi_xml (0.6.0)
     nio4r (2.5.2)
-    nokogiri (1.10.5-x64-mingw32)
-      mini_portile2 (~> 2.4.0)
+    nokogiri (1.13.10-x64-mingw32)
+      racc (~> 1.4)
+    nokogiri (1.13.10-x86_64-linux)
+      racc (~> 1.4)
+    pg (1.1.4)
     pg (1.1.4-x64-mingw32)
     popper_js (1.14.5)
     public_suffix (4.0.1)
     puma (3.12.1)
+    racc (1.6.1)
     rack (2.0.7)
-    rack-proxy (0.6.5)
-      rack
     rack-test (1.1.0)
       rack (>= 1.0, < 3)
     rails (5.2.3)
@@ -155,8 +158,8 @@ GEM
     rails-dom-testing (2.0.3)
       activesupport (>= 4.2.0)
       nokogiri (>= 1.6)
-    rails-html-sanitizer (1.3.0)
-      loofah (~> 2.3)
+    rails-html-sanitizer (1.4.4)
+      loofah (~> 2.19, >= 2.19.1)
     railties (5.2.3)
       actionpack (= 5.2.3)
       activesupport (= 5.2.3)
@@ -181,6 +184,8 @@ GEM
       sprockets (>= 2.8, < 4.0)
       sprockets-rails (>= 2.0, < 4.0)
       tilt (>= 1.1, < 3)
+    sassc (2.2.1)
+      ffi (~> 1.9)
     sassc (2.2.1-x64-mingw32)
       ffi (~> 1.9)
     sassc-rails (2.1.2)
@@ -218,16 +223,11 @@ GEM
       tzinfo (>= 1.0.0)
     uglifier (4.2.0)
       execjs (>= 0.3.0, < 3)
-    wdm (0.1.1)
     web-console (3.7.0)
       actionview (>= 5.0)
       activemodel (>= 5.0)
       bindex (>= 0.4.0)
       railties (>= 5.0)
-    webpacker (3.6.0)
-      activesupport (>= 4.2)
-      rack-proxy (>= 0.6.1)
-      railties (>= 4.2)
     websocket-driver (0.7.1)
       websocket-extensions (>= 0.1.0)
     websocket-extensions (0.1.4)
@@ -236,6 +236,7 @@ GEM
 
 PLATFORMS
   x64-mingw32
+  x86_64-linux
 
 DEPENDENCIES
   autoprefixer-rails
@@ -264,9 +265,7 @@ DEPENDENCIES
   turbolinks (~> 5)
   tzinfo-data
   uglifier (>= 1.3.0)
-  wdm (>= 0.1.0)
   web-console (>= 3.3.0)
-  webpacker (~> 3.5)
 
 RUBY VERSION
    ruby 2.6.5p114
